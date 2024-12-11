@@ -19,7 +19,8 @@ import {
   DashboardButton,
   Indices,
   Dot,
-} from "./styles";
+} from "./_styles/styles";
+import GlobalStyle from "./_styles/GlobalStyle";
 
 function App() {
   const data = Object.keys(CATEGORY_TYPE).map((key) => ({
@@ -36,52 +37,55 @@ function App() {
   const Icon = isPositive ? MoveUp : MoveDown;
 
   return (
-    <Container>
-      <Header>
-        <Title>Linha do tempo: Avanço dos reportes</Title>
-        <DashboardButton>Ver mais</DashboardButton>
-      </Header>
-      <Percentage textColor={textColor}>
-        <Icon color={textColor} size={13} strokeWidth={3} />
-        <span>{teste}%</span>
-        <Text>desde a última pesquisa</Text>
-      </Percentage>
-      <Calendar>De 1-12 Dez, 2024</Calendar>
-      <ResponsiveContainer width={635} height={600} className="container">
-        <BarChart
-          data={data}
-          layout="vertical"
-          margin={{
-            top: 5,
-            right: 30,
-            left: 30,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis type="number" tick={false} />
-          <YAxis type="category" dataKey="name" width={100} />
-          <Tooltip />
-          <Bar dataKey="Alto" fill="#02a6ae" />
-          <Bar dataKey="Médio" fill="#12c2d9" />
-          <Bar dataKey="Baixo" fill="#e6e7eb" />
-        </BarChart>
-      </ResponsiveContainer>
-      <Indices>
-        <p>
-          <Dot color="#02a6ae" />
-          Alto
-        </p>
-        <p>
-          <Dot color="#12c2d9" />
-          Médio
-        </p>
-        <p>
-          <Dot color="#e6e7eb" />
-          Baixo
-        </p>
-      </Indices>
-    </Container>
+    <>
+      <GlobalStyle />
+      <Container>
+        <Header>
+          <Title>Linha do tempo: Avanço dos reportes</Title>
+          <DashboardButton>Ver mais</DashboardButton>
+        </Header>
+        <Percentage textColor={textColor}>
+          <Icon color={textColor} size={13} strokeWidth={3} />
+          <span>{teste}%</span>
+          <Text>desde a última pesquisa</Text>
+        </Percentage>
+        <Calendar>De 1-12 Dez, 2024</Calendar>
+        <ResponsiveContainer width={635} height={600} className="container">
+          <BarChart
+            data={data}
+            layout="vertical"
+            margin={{
+              top: 5,
+              right: 30,
+              left: 30,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis type="number" tick={false} />
+            <YAxis type="category" dataKey="name" width={100} />
+            <Tooltip />
+            <Bar dataKey="Alto" fill="#02a6ae" />
+            <Bar dataKey="Médio" fill="#12c2d9" />
+            <Bar dataKey="Baixo" fill="#e6e7eb" />
+          </BarChart>
+        </ResponsiveContainer>
+        <Indices>
+          <p>
+            <Dot color="#02a6ae" />
+            Alto
+          </p>
+          <p>
+            <Dot color="#12c2d9" />
+            Médio
+          </p>
+          <p>
+            <Dot color="#e6e7eb" />
+            Baixo
+          </p>
+        </Indices>
+      </Container>
+    </>
   );
 }
 
