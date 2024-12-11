@@ -8,7 +8,18 @@ import {
   YAxis,
 } from "recharts";
 import { CATEGORY_TYPE } from "./_constants";
-import "./index.css";
+import { MoveUp, MoveDown } from "lucide-react";
+import {
+  Container,
+  Header,
+  Title,
+  Percentage,
+  Text,
+  Calendar,
+  DashboardButton,
+  Indices,
+  Dot,
+} from "./styles";
 
 function App() {
   const data = Object.keys(CATEGORY_TYPE).map((key) => ({
@@ -18,16 +29,25 @@ function App() {
     Baixo: Math.floor(Math.random() * 5000),
   }));
 
-  const teste = "2.1%";
+  const teste = (Math.random() * 200 - 100).toFixed(1);
+
+  const isPositive = Number(teste) > 0;
+  const textColor = isPositive ? "rgba(50, 172, 120, 255)" : "red";
+  const Icon = isPositive ? MoveUp : MoveDown;
 
   return (
-    <div className="container">
-      <div className="header">
-        <h3>Linha do tempo: Avanço dos reportes</h3>
-        <button className="dashboard-button">Ver mais</button>
-      </div>
-      <div>{teste} desde a útilma pesquisa</div>
-      <ResponsiveContainer width={"50%"} height={500} className="container">
+    <Container>
+      <Header>
+        <Title>Linha do tempo: Avanço dos reportes</Title>
+        <DashboardButton>Ver mais</DashboardButton>
+      </Header>
+      <Percentage textColor={textColor}>
+        <Icon color={textColor} size={13} strokeWidth={3} />
+        <span>{teste}%</span>
+        <Text>desde a última pesquisa</Text>
+      </Percentage>
+      <Calendar>De 1-12 Dez, 2024</Calendar>
+      <ResponsiveContainer width={635} height={600} className="container">
         <BarChart
           data={data}
           layout="vertical"
@@ -40,32 +60,28 @@ function App() {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis type="number" tick={false} />
-          <YAxis
-            type="category"
-            dataKey="name"
-            tick={{ className: "category-label" }}
-          />
+          <YAxis type="category" dataKey="name" width={100} />
           <Tooltip />
           <Bar dataKey="Alto" fill="#02a6ae" />
           <Bar dataKey="Médio" fill="#12c2d9" />
           <Bar dataKey="Baixo" fill="#e6e7eb" />
         </BarChart>
       </ResponsiveContainer>
-      <div className="indices">
+      <Indices>
         <p>
-          <span className="dot-alto"></span>
+          <Dot color="#02a6ae" />
           Alto
         </p>
         <p>
-          <span className="dot-medio"></span>
+          <Dot color="#12c2d9" />
           Médio
         </p>
         <p>
-          <span className="dot-baixo"></span>
+          <Dot color="#e6e7eb" />
           Baixo
         </p>
-      </div>
-    </div>
+      </Indices>
+    </Container>
   );
 }
 
