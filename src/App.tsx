@@ -33,7 +33,7 @@ function App() {
   const teste = (Math.random() * 200 - 100).toFixed(1);
 
   const isPositive = Number(teste) > 0;
-  const textColor = isPositive ? "rgba(50, 172, 120, 255)" : "red";
+  const textColor = isPositive ? "#149D52" : "red";
   const Icon = isPositive ? MoveUp : MoveDown;
 
   return (
@@ -50,7 +50,7 @@ function App() {
           <Text>desde a última pesquisa</Text>
         </Percentage>
         <Calendar>De 1-12 Dez, 2024</Calendar>
-        <ResponsiveContainer width={635} height={600} className="container">
+        <ResponsiveContainer width={655} height={574} className="container">
           <BarChart
             data={data}
             layout="vertical"
@@ -65,22 +65,22 @@ function App() {
             <XAxis type="number" tick={false} />
             <YAxis type="category" dataKey="name" width={100} />
             <Tooltip />
-            <Bar dataKey="Alto" fill="#02a6ae" />
-            <Bar dataKey="Médio" fill="#12c2d9" />
-            <Bar dataKey="Baixo" fill="#e6e7eb" />
+            <Bar dataKey="Alto" fill="#36A3AE" />
+            <Bar dataKey="Médio" fill="#44C5E1" />
+            <Bar dataKey="Baixo" fill="#E6E8EC" />
           </BarChart>
         </ResponsiveContainer>
         <Indices>
           <p>
-            <Dot color="#02a6ae" />
+            <Dot color="#36A3AE" />
             Alto
           </p>
           <p>
-            <Dot color="#12c2d9" />
+            <Dot color="#44C5E1" />
             Médio
           </p>
           <p>
-            <Dot color="#e6e7eb" />
+            <Dot color="#E6E8EC" />
             Baixo
           </p>
         </Indices>

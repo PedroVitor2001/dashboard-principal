@@ -11,12 +11,13 @@ export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 690px;
+  max-width: 710px;
   padding-left: 25px;
 `;
 
 export const Title = styled.h3`
   font-weight: bold;
+  font-size: 15px;
 `;
 
 export const Percentage = styled.div<{ textColor: string }>`
@@ -30,7 +31,7 @@ export const Percentage = styled.div<{ textColor: string }>`
 `;
 
 export const Text = styled.p`
-  color: rgb(129, 125, 125);
+  color: #737b8b;
   font-weight: 450;
 `;
 
@@ -42,7 +43,7 @@ export const Calendar = styled.div`
 `;
 
 export const DashboardButton = styled.button`
-  color: #12c2d9;
+  color: #2099a5;
   background-color: #fafbfc;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 5px;
@@ -50,8 +51,8 @@ export const DashboardButton = styled.button`
     rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   padding: 6px 16px;
   font-weight: bold;
-  height: 35px;
-  width: 110px;
+  height: 32px;
+  width: 109px;
   cursor: pointer;
 
   &:hover {
@@ -68,8 +69,8 @@ export const Indices = styled.div`
 `;
 
 export const Dot = styled.span<{ color: string }>`
-  width: 12px;
-  height: 12px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   margin-right: 10px;
   display: inline-block;
